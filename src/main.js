@@ -102,4 +102,33 @@ if (document.readyState === "loading") {
   initFilters();
   initThemeToggle();
 }
+ 
 
+// removing extensions from the list is purely a client-side action here, so we can just remove the card element from the DOM when the "Remove" button is clicked. This won't persist across page reloads, but it meets the requirement of removing it from the current view.
+
+function initRemoveButtons() {
+  const removeIds = [
+    "remove-devlens", "remove-stylespy", "remove-speedboost", "remove-jsonwizard",
+    "remove-tabmaster", "remove-viewportbuddy", "remove-markupnotes", "remove-gridguide",
+    "remove-palettepicker", "remove-linkchecker", "remove-domsnapshot", "remove-consoleplus"
+  ];
+
+  removeIds.forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) {
+      btn.addEventListener("click", () => {
+        btn.closest(".extension-card").remove();
+      });
+    }
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initFilters);
+  document.addEventListener("DOMContentLoaded", initThemeToggle);
+  document.addEventListener("DOMContentLoaded", initRemoveButtons);
+} else {
+  initFilters();
+  initThemeToggle();
+  initRemoveButtons();
+}
