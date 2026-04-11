@@ -95,17 +95,16 @@ function initFilters() {
   });
 }
 
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initFilters);
-  document.addEventListener("DOMContentLoaded", initThemeToggle);
-} else {
-  initFilters();
-  initThemeToggle();
-}
+// if (document.readyState === "loading") {
+//   document.addEventListener("DOMContentLoaded", initFilters);
+//   document.addEventListener("DOMContentLoaded", initThemeToggle);
+// } else {
+//   initFilters();
+//   initThemeToggle();
+// }
  
 
 // removing extensions from the list is purely a client-side action here, so we can just remove the card element from the DOM when the "Remove" button is clicked. This won't persist across page reloads, but it meets the requirement of removing it from the current view.
-
 function initRemoveButtons() {
   const removeIds = [
     "remove-devlens", "remove-stylespy", "remove-speedboost", "remove-jsonwizard",
@@ -123,6 +122,7 @@ function initRemoveButtons() {
   });
 }
 
+// Single initialization block - REMOVE the duplicate below this
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initFilters);
   document.addEventListener("DOMContentLoaded", initThemeToggle);
