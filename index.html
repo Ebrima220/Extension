@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>test-full-ai-work</title>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen p-8">
+
+  <!-- Header -->
+  <header
+    class="mb-6 flex items-center justify-between gap-3 bg-gray-800/80 border border-white/10 rounded-xl p-2 shadow">
+    <div class="flex items-center gap-2">
+      <img src="/image/extension-logo.PNG" alt="Extensions logo" class="w-6 h-6 rounded" />
+      <h1 class="text-2xl font-bold">Extensions</h1>
+    </div>
+    <button id="themeToggle" type="button"
+      class="shrink-0 border-0 bg-gray-800 rounded-lg p-2 shadow flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50">
+      <img id="themeToggleIcon" src="/image/Toggle-theme-dark.png" data-icon-dark="/image/Toggle-theme-dark.png"
+        data-icon-light="/image/Toggle-themes-light.png" alt="Toggle theme"
+        class="w-5 h-5 rounded object-cover block" />
+    </button>
+  </header>
+
+
+  <!-- Filter Buttons -->
+  <div class="grid gap-4 md:flex md:items-center md:justify-between">
+    <div>
+      <p class="text-gray-400 text-3xl font-bold text-center md:text-left">Extensions List</p>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 md:flex md:gap-4 md:mb-8" id="filterButtons">
+      <button type="button" data-filter="all"
+        class="filter-btn w-full px-3 py-1.5 text-sm sm:px-4 sm:py-2 sm:text-base rounded-full transition-colors">All</button>
+      <button type="button" data-filter="active"
+        class="filter-btn w-full px-3 py-1.5 text-sm sm:px-4 sm:py-2 sm:text-base rounded-full transition-colors">Active</button>
+      <button type="button" data-filter="inactive"
+        class="filter-btn w-full px-3 py-1.5 text-sm sm:px-4 sm:py-2 sm:text-base rounded-full transition-colors">Inactive</button>
+    </div>
+
+  </div>
+
+  <!-- Extensions Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  mt-6 ">
+
+    <!-- Extension Card -->
+    <div class="extension-card bg-gray-800 rounded-lg p-5 shadow flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/image/Devlens.PNG" alt="DevLens icon" class="w-8 h-8 rounded" />
+          <h2 class="text-xl font-semibold">DevLens</h2>
+        </div>
+        <p class="text-gray-400 text-sm mt-2">Quickly inspect page layouts and visualize element boundaries.</p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <button
+          class="text-red-400 hover:text-red-300 border border-red-500/40 hover:border-red-400 rounded-full px-3 py-1">Remove</button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" checked class="extension-toggle sr-only peer">
+          <div
+            class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-red-600 relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5">
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Repeat for other extensions -->
+    <div class="extension-card bg-gray-800 rounded-lg p-5 shadow flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/image/Stylespy.PNG" alt="StyleSpy icon" class="w-8 h-8 rounded" />
+          <h2 class="text-xl font-semibold">StyleSpy</h2>
+        </div>
+        <p class="text-gray-400 text-sm mt-2">Instantly analyze and copy CSS from any webpage element.</p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <button
+          class="text-red-400 hover:text-red-300 border border-red-500/40 hover:border-red-400 rounded-full px-3 py-1">Remove</button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" checked class="extension-toggle sr-only peer">
+          <div
+            class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-red-600 relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5">
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="extension-card bg-gray-800 rounded-lg p-5 shadow flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/image/speedBoost.PNG" alt="SpeedBoost icon" class="w-8 h-8 rounded" />
+          <h2 class="text-xl font-semibold">SpeedBoost</h2>
+        </div>
+        <p class="text-gray-400 text-sm mt-2">Optimizes browser resource usage to accelerate page loading.</p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <button
+          class="text-red-400 hover:text-red-300 border border-red-500/40 hover:border-red-400 rounded-full px-3 py-1">Remove</button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="extension-toggle sr-only peer">
+          <div
+            class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-red-600 relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5">
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- JSONWizard -->
+    <div class="extension-card bg-gray-800 rounded-lg p-5 shadow flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/image/JsonWizard.PNG" alt="JSONWizard icon" class="w-8 h-8 rounded" />
+          <h2 class="text-xl font-semibold">JSONWizard</h2>
+        </div>
+        <p class="text-gray-400 text-sm mt-2">Formats,validates and pretiffies Json responses in-browser</p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <button
+          class="text-red-400 hover:text-red-300 border border-red-500/40 hover:border-red-400 rounded-full px-3 py-1">Remove</button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="extension-toggle sr-only peer">
+          <div
+            class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-red-600 relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5">
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Tabmaster pro -->
+    <div class="extension-card bg-gray-800 rounded-lg p-5 shadow flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/image/TabMaster-pro.PNG" alt="TabMaster pro icon" class="w-8 h-8 rounded" />
+          <h2 class="text-xl font-semibold">TabMaster pro</h2>
+        </div>
+        <p class="text-gray-400 text-sm mt-2">Organise browser into groups and sessions</p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <button
+          class="text-red-400 hover:text-red-300 border border-red-500/40 hover:border-red-400 rounded-full px-3 py-1">Remove</button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" checked class="extension-toggle sr-only peer">
+          <div
+            class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-red-600 relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5">
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- ViewportBuddy -->
+    <div class="extension-card bg-gray-800 rounded-lg p-5 shadow flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/image/ViewportBuddy.PNG" alt="ViewportBuddy icon" class="w-8 h-8 rounded" />
+          <h2 class="text-xl font-semibold">ViewportBuddy</h2>
+        </div>
+        <p class="text-gray-400 text-sm mt-2">Simulates various screen resolutions directly within the browser.</p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <button
+          class="text-red-400 hover:text-red-300 border border-red-500/40 hover:border-red-400 rounded-full px-3 py-1">Remove</button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="extension-toggle sr-only peer">
+          <div
+            class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-red-600 relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5">
+          </div>
+        </label>
+      </div>
+    </div>
+    <!-- markup notes -->
+    <div class="extension-card bg-gray-800 rounded-lg p-5 shadow flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/image/mackup-notes.PNG" alt="markup notes icon" class="w-8 h-8 rounded" />
+          <h2 class="text-xl font-semibold">Markup Notes</h2>
+        </div>
+        <p class="text-gray-400 text-sm mt-2">Enables annotation and notes directly onto webpages for collaborative
+          debugging.</p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <button
+          class="text-red-400 hover:text-red-300 border border-red-500/40 hover:border-red-400 rounded-full px-3 py-1">Remove</button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" checked class="extension-toggle sr-only peer">
+          <div
+            class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-red-600 relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5">
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- grid guide -->
+    <div class="extension-card bg-gray-800 rounded-lg p-5 shadow flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/image/grid-guide.PNG" alt="Grid guide icon" class="w-8 h-8 rounded" />
+          <h2 class="text-xl font-semibold">Gridguide</h2>
+        </div>
+        <p class="text-gray-400 text-sm mt-2">overlay costomizable grids and alignment guides on any webpage</p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <button
+          class="text-red-400 hover:text-red-300 border border-red-500/40 hover:border-red-400 rounded-full px-3 py-1">Remove</button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="extension-toggle sr-only peer">
+          <div
+            class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-red-600 relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5">
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!--palatte picker -->
+    <div class="extension-card bg-gray-800 rounded-lg p-5 shadow flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/image/platte-picker.PNG" alt="Palette Picker icon" class="w-8 h-8 rounded" />
+          <h2 class="text-xl font-semibold">Palette Picker</h2>
+        </div>
+        <p class="text-gray-400 text-sm mt-2">Instantly extracts color palettes from any webpage.</p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <button
+          class="text-red-400 hover:text-red-300 border border-red-500/40 hover:border-red-400 rounded-full px-3 py-1">Remove</button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="extension-toggle sr-only peer">
+          <div
+            class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-red-600 relative after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5">
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- LinkChecker -->
+    <div class="extension-card bg-gray-800 rounded-lg p-5 shadow flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/image/link-checker.PNG" alt="LinkChecker icon" class="w-8 h-8 rounded" />
+          <h2 class="text-xl font-semibold">LinkChecker</h2>
+        </div>
+        <p class="text-gray-400 text-sm mt-2">Scans and highlights broken links on any page.</p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <button
+          class="text-red-400 hover:text-red-300 border border-red-500/40 hover:border-red-400 rounded-full px-3 py-1">Remove</button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="extension-toggle sr-only peer">
+          <div class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-red-600 relative 
+          after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white 
+          after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5">
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- DOM Snapshot -->
+    <div class="extension-card bg-gray-800 rounded-lg p-5 shadow flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/image/dom-snapshot-dark.PNG" alt="DOM Snapshot icon" class="w-8 h-8 rounded" />
+          <h2 class="text-xl font-semibold">DOM Snapshot</h2>
+        </div>
+        <p class="text-gray-400 text-sm mt-2">Capture and export DOM structures quickly.</p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <button
+          class="text-red-400 hover:text-red-300 border border-red-500/40 hover:border-red-400 rounded-full px-3 py-1">Remove</button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="extension-toggle sr-only peer">
+          <div class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-red-600 relative 
+          after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white 
+          after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5">
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- ConsolePlus -->
+    <div class="extension-card bg-gray-800 rounded-lg p-5 shadow flex flex-col justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/image/console-plus.PNG" alt="ConsolePlus icon" class="w-8 h-8 rounded" />
+          <h2 class="text-xl font-semibold">ConsolePlus</h2>
+        </div>
+        <p class="text-gray-400 text-sm mt-2">Enhanced developer console with advanced filtering and logging.</p>
+      </div>
+      <div class="flex justify-between items-center mt-4">
+        <button
+          class="text-red-400 hover:text-red-300 border border-red-500/40 hover:border-red-400 rounded-full px-3 py-1">Remove</button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="extension-toggle sr-only peer">
+          <div class="w-11 h-6 bg-gray-600 rounded-full peer-checked:bg-red-600 relative 
+          after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white 
+          after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5">
+          </div>
+        </label>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+
+
+</html>

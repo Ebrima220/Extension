@@ -1,0 +1,37 @@
+
+@import "tailwindcss";
+
+/* Light mode overrides (we keep your existing Tailwind classes as the default/dark look). */
+body.theme-light {
+  background-color: #f8fafc; /* slate-50 */
+  color: #0f172a; /* slate-900 */
+}
+
+body.theme-light header {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .extension-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light #themeToggle {
+  background-color: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .text-gray-400 {
+  color: #475569; /* slate-600 */
+}
+
+body.theme-light #filterButtons .filter-muted {
+  background-color: #e2e8f0;
+  color: #64748b;
+  border-color: #cbd5e1;
+}
+
+body.theme-light #filterButtons .filter-muted:hover {
+  background-color: #cbd5e1;
+}
