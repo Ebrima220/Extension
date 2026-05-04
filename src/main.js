@@ -3,6 +3,10 @@
 
 let currentFilter = "all";
 
+/** Wait for the extension row toggle animation before hiding/showing cards (matches CSS ~300ms). */
+const EXTENSION_TOGGLE_FILTER_DELAY_MS = 300;
+let extensionToggleFilterTimer = null;
+
 function setTheme(theme) {
   const isLight = theme === "light";
   document.body.classList.toggle("theme-light", isLight);
@@ -85,14 +89,20 @@ function initFilters() {
     });
   });
 
-  // If a toggle changes while a filter is active,
-  // keep the list consistent without requiring another click.
+  // If a toggle changes while a filter is active, refresh the list after the toggle
+  // finishes animating so the card does not vanish/appear mid-switch (unlike Remove).
   document.addEventListener("change", (e) => {
     const target = e.target;
     if (!(target instanceof HTMLInputElement)) return;
     if (!target.classList.contains("extension-toggle")) return;
-    applyFilter(currentFilter);
+    window.clearTimeout(extensionToggleFilterTimer);
+    extensionToggleFilterTimer = window.setTimeout(() => {
+      extensionToggleFilterTimer = null;
+      applyFilter(currentFilter);
+    }, EXTENSION_TOGGLE_FILTER_DELAY_MS);
   });
+
+
 }
 
 // if (document.readyState === "loading") {
@@ -132,3 +142,4 @@ if (document.readyState === "loading") {
   initThemeToggle();
   initRemoveButtons();
 }
+

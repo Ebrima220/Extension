@@ -35,3 +35,11 @@ body.theme-light #filterButtons .filter-muted {
 body.theme-light #filterButtons .filter-muted:hover {
   background-color: #cbd5e1;
 }
+
+/* Extension switch: explicit duration so the knob finishes sliding before filter hides the card */
+.extension-card label.inline-flex > div {
+  transition: background-color 300ms ease;
+}
+.extension-card label.inline-flex > div::after {
+  transition: transform 300ms ease;
+}
